@@ -31,7 +31,14 @@ app.use(
 )
 
 import koaBody from 'koa-body'
-app.use(koaBody({ multipart: true }))
+import path from 'path'
+app.use(koaBody({
+  multipart: true,
+  formidable: {
+    uploadDir: path.join(__dirname, 'tmp/uploads'),
+    keepExtensions: true,
+  },
+}))
 
 
 import routes from './routes'
