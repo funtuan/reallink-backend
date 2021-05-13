@@ -1,0 +1,8 @@
+version: '3.1'
+services:
+  bff:
+    build: .
+    env_file:
+      .env
+    ports:
+    - "1337:1337"
