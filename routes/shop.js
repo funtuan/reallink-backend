@@ -13,11 +13,10 @@ publicRouter.route({
   validate: {
     body: {
       name: Joi.string().max(20).required(),
-      phone: Joi.string().max(20).required(),
       address: Joi.string().max(50).required(),
       contactName: Joi.string().max(10).required(),
       contactPhone: Joi.string().max(20).required(),
-      contactEmail: Joi.string().email().max(100).required(),
+      contactEmail: Joi.string().max(200).required(),
     },
     type: 'json',
   },

@@ -15,7 +15,6 @@ export default {
   async create(ctx) {
     const {
       name,
-      phone,
       address,
       contactName,
       contactPhone,
@@ -28,7 +27,6 @@ export default {
     const shop = new Shop({
       code,
       name,
-      phone,
       address,
       contactName,
       contactPhone,
