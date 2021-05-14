@@ -6,6 +6,6 @@ COPY package.json /app/
 RUN npm install
 COPY . /app
 
-EXPOSE 1337
+EXPOSE 3000
 
 CMD [ "node", "server.js" ]

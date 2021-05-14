@@ -58,6 +58,7 @@ export default {
       body = _.pick(shop, [
         'code',
         'name',
+        'address',
       ])
       nodeCache.set(key, body)
     }

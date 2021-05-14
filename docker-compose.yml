@@ -1,8 +1,8 @@
 version: '3.1'
 services:
-  bff:
+  reallink-backend:
     build: .
     env_file:
       .env
     ports:
-    - "1337:1337"
+    - "3000:3000"
