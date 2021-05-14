@@ -24,6 +24,8 @@ module.exports = async (ctx, next) => {
         sequelizeErrorMessages = error.message
       })
     }
+
+    console.log(err)
     ctx.status = _.defaultTo(status, 422)
     ctx.body = {
       status,
