@@ -69,7 +69,6 @@ export default {
       code,
     } = ctx.request.params
     const {
-      userId,
       info,
       goAt,
     } = ctx.request.body
@@ -81,7 +80,6 @@ export default {
     ctx.assert(shop, new BadRequestError(`shop not found`))
 
     const record = new Record({
-      userId,
       info,
       goAt,
       shop: shop.id,

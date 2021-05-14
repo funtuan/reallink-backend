@@ -1,9 +1,5 @@
 import mongoose, { Schema } from 'mongoose'
 const schema = new Schema({
-  userId: {
-    type: String,
-    required: true,
-  },
   info: {
     type: String,
     required: true,

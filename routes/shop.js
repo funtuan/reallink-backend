@@ -38,7 +38,6 @@ publicRouter.route({
   path: '/shop/:code/record',
   validate: {
     body: {
-      userId: Joi.string().max(50).required(),
       info: Joi.string().max(3000).required(),
       goAt: Joi.date().required(),
     },

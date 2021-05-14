@@ -19,9 +19,10 @@ import jwt from './middleware/jwt'
 app.use(jwt)
 
 import cors from './middleware/cors'
+import { frontendHost } from './config/server'
 app.use(
     cors({
-      origin: '*',
+      origin: frontendHost,
       exposeHeaders: ['Authorization'],
       credentials: true,
       allowMethods: ['GET', 'PUT', 'POST', 'DELETE', 'OPTIONS'],
