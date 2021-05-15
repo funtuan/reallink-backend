@@ -47,6 +47,10 @@ router.get('/', (ctx) => {
   ctx.body = 'ok'
 })
 app.use(router.routes())
+app.use((ctx, next) => {
+  console.log(new Date())
+  next()
+})
 
 import routes from './routes'
 app.use(routes.routes())
