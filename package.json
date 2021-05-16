@@ -1,6 +1,6 @@
 {
-  "name": "bff",
-  "version": "1.0.0",
+  "name": "reallink-backend",
+  "version": "1.1.0",
   "description": "",
   "main": "index.js",
   "scripts": {
@@ -16,6 +16,7 @@
     "axios": "^0.21.1",
     "bcryptjs": "^2.4.3",
     "cheerio": "^1.0.0-rc.9",
+    "dayjs": "^1.10.4",
     "dotenv": "^9.0.2",
     "fs": "0.0.1-security",
     "http": "0.0.1-security",
@@ -32,6 +33,7 @@
     "koa-router": "^10.0.0",
     "koa-x-request-id": "^2.0.0",
     "lodash": "^4.17.21",
+    "mailgun-js": "^0.22.0",
     "mongoose": "^5.10.9",
     "nanoid": "^3.1.23",
     "node-cache": "^5.1.2",
