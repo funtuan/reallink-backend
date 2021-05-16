@@ -4,6 +4,11 @@ import Shop from '../models/Shop'
 import Record from '../models/Record'
 
 import dayjs from 'dayjs'
+import utc from 'dayjs/plugin/utc'
+import timezone from 'dayjs/plugin/timezone'
+dayjs.extend(utc)
+dayjs.extend(timezone)
+
 import NodeCache from 'node-cache'
 const nodeCache = new NodeCache()
 
@@ -18,12 +23,12 @@ export default {
       end,
     } = ctx.request.query
 
-    const startDay = new Date(dayjs(start).format('YYYY-MM-DD 00:00:00 +0800'))
-    const endDay = new Date(dayjs(end).add(1, 'day').format('YYYY-MM-DD 00:00:00 +0800'))
+    const startDay = new Date(`${start} 00:00:00 +0800`)
+    const endDay = new Date(`${end} 00:00:00 +0800`)
 
     ctx.assert(start <= end, new BadRequestError(`start must be less than end`))
-    ctx.assert(endDay < new Date(dayjs().add(1, 'day').format('YYYY-MM-DD 00:00:00 +0800')), new BadRequestError(`end cannot be greater than today`))
-    ctx.assert(startDay > new Date(dayjs().add(-28, 'day').format('YYYY-MM-DD 00:00:00 +0800')), new BadRequestError(`start must be greater than 28 days ago`))
+    ctx.assert(endDay < new Date(dayjs().tz('Asia/Taipei').format('YYYY-MM-DD 00:00:00 +0800')), new BadRequestError(`end cannot be greater than today`))
+    ctx.assert(startDay > new Date(dayjs().tz('Asia/Taipei').add(-28, 'day').format('YYYY-MM-DD 00:00:00 +0800')), new BadRequestError(`start must be greater than 28 days ago`))
 
     const key = `dashbroad:showDayData:${code}:${secret}:${+startDay}:${+endDay}`
 

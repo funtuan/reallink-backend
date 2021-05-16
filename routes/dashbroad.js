@@ -14,8 +14,8 @@ publicRouter.route({
     query: {
       code: Joi.string().required(),
       secret: Joi.string().required(),
-      start: Joi.date().required(),
-      end: Joi.date().required(),
+      start: Joi.string().required(),
+      end: Joi.string().required(),
     },
     output: {
       200: {
