@@ -2,6 +2,8 @@
 import { BadRequestError } from '../unit/errors'
 import Shop from '../models/Shop'
 import Record from '../models/Record'
+import { frontendHost } from '../config/server'
+import mailgun from '../services/mailgun'
 
 import NodeCache from 'node-cache'
 const nodeCache = new NodeCache()
@@ -34,6 +36,13 @@ export default {
       secret,
     })
     await shop.save()
+
+    mailgun.sendRegisterMessage({
+      to: contactEmail,
+      name,
+      dashboardLink: `${frontendHost}/dashboard/${code}/${secret}`,
+      printLink: `${frontendHost}/download/${code}/${secret}`,
+    })
 
     ctx.body = shop
   },
