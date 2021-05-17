@@ -24,7 +24,7 @@ export default {
     } = ctx.request.query
 
     const startDay = new Date(`${start} 00:00:00 +0800`)
-    const endDay = new Date(`${end} 00:00:00 +0800`)
+    const endDay = new Date(+new Date(`${end} 00:00:00 +0800`) + 24 * 60 * 60 * 1000)
 
     ctx.assert(start <= end, new BadRequestError(`start must be less than end`))
     ctx.assert(endDay < new Date(dayjs().tz('Asia/Taipei').format('YYYY-MM-DD 00:00:00 +0800')), new BadRequestError(`end cannot be greater than today`))
