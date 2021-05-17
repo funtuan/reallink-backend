@@ -8,6 +8,9 @@ const schema = new Schema({
     type: Date,
     required: true,
   },
+  uuid: {
+    type: String,
+  },
   shop: {
     type: Schema.Types.ObjectId,
     ref: 'Shop',
