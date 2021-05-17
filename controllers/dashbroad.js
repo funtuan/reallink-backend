@@ -27,7 +27,7 @@ export default {
     const endDay = new Date(+new Date(`${end} 00:00:00 +0800`) + 24 * 60 * 60 * 1000)
 
     ctx.assert(start <= end, new BadRequestError(`start must be less than end`))
-    ctx.assert(endDay < new Date(dayjs().tz('Asia/Taipei').format('YYYY-MM-DD 00:00:00 +0800')), new BadRequestError(`end cannot be greater than today`))
+    ctx.assert(endDay <= new Date(dayjs().tz('Asia/Taipei').format('YYYY-MM-DD 01:00:00 +0800')), new BadRequestError(`end cannot be greater than today`))
     ctx.assert(startDay > new Date(dayjs().tz('Asia/Taipei').add(-28, 'day').format('YYYY-MM-DD 00:00:00 +0800')), new BadRequestError(`start must be greater than 28 days ago`))
 
     const key = `dashbroad:showDayData:${code}:${secret}:${+startDay}:${+endDay}`
