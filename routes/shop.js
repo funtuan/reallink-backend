@@ -40,7 +40,7 @@ publicRouter.route({
     body: {
       info: Joi.string().max(3000).required(),
       goAt: Joi.date().required(),
-      uuid: Joi.string(),
+      uuid: Joi.string().allow(null),
     },
     type: 'json',
   },
