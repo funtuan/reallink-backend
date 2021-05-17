@@ -46,7 +46,7 @@ export default {
 
     const count = await Record.count({
       shop: shop._id,
-      goAt: { $gte: startDay, $lt: endDay },
+      createdAt: { $gte: startDay, $lt: endDay },
     })
 
     const body = {
