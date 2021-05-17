@@ -80,6 +80,7 @@ export default {
     const {
       info,
       goAt,
+      uuid,
     } = ctx.request.body
 
     ctx.assert(code, new BadRequestError(`code not found`))
@@ -91,6 +92,7 @@ export default {
     const record = new Record({
       info,
       goAt,
+      uuid,
       shop: shop.id,
     })
     record.save()
